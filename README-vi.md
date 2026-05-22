@@ -108,7 +108,7 @@ dependencies:
 Import get vào file cần sử dụng:
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 ```
 
 # Counter App với GetX
@@ -324,7 +324,7 @@ Các bản dịch được lưu giữ như một bản đồ từ điển (dicti
 Để thêm các bản dịch tùy chỉnh, hãy tạo một class và kế thừa (extend) từ `Translation`.
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 class Messages extends Translations {
   @override
@@ -357,7 +357,7 @@ Text('singularKey'.trPlural('pluralKey', products.length, Args));
 #### Sử dụng bản dịch với tham số (parameters)
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 
 Map<String, Map<String, String>> get keys => {

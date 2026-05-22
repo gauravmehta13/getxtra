@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 import '../controllers/settings_controller.dart';
 
@@ -10,10 +10,7 @@ class SettingsView extends GetView<SettingsController> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text(
-          'SettingsView is working',
-          style: TextStyle(fontSize: 20),
-        ),
+        child: Text('SettingsView is working', style: TextStyle(fontSize: 20)),
       ),
     );
   }

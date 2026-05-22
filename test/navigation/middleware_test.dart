@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 import 'get_main_test.dart';
 
@@ -156,8 +156,9 @@ void main() {
     expect(Get.currentRoute, '/second');
   });
 
-  testWidgets("Navigation history should be correct after redirects",
-      (tester) async {
+  testWidgets("Navigation history should be correct after redirects", (
+    tester,
+  ) async {
     // Test setup
     await tester.pumpWidget(
       GetMaterialApp(

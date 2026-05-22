@@ -2,23 +2,17 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:get/get.dart';
-import 'package:get/get_navigation/src/routes/test_kit.dart';
+import 'package:getxtra/get.dart';
+import 'package:getxtra/get_navigation/src/routes/test_kit.dart';
 import 'package:get_demo/pages/home/domain/adapters/repository_adapter.dart';
 import 'package:get_demo/pages/home/domain/entity/country_model.dart';
 import 'package:get_demo/pages/home/presentation/controllers/details_controller.dart';
 import 'package:get_demo/pages/home/presentation/controllers/home_controller.dart';
 
 // Mock data
-const country1 = CountriesItem(
-  country: 'Lalaland',
-  countryCode: 'LA',
-);
+const country1 = CountriesItem(country: 'Lalaland', countryCode: 'LA');
 
-const country2 = CountriesItem(
-  country: 'Lololand',
-  countryCode: 'LO',
-);
+const country2 = CountriesItem(country: 'Lololand', countryCode: 'LO');
 
 // Mock repository for success
 class MockRepositorySuccess implements IHomeRepository {
@@ -27,11 +21,11 @@ class MockRepositorySuccess implements IHomeRepository {
 
   @override
   Future<Country> getCountry(String path) async => Country(
-        name: 'Lalaland',
-        countryCode: 'LA',
-        numberOfPrizes: 3,
-        averageAgeOfLaureates: 4,
-      );
+    name: 'Lalaland',
+    countryCode: 'LA',
+    numberOfPrizes: 3,
+    averageAgeOfLaureates: 4,
+  );
 }
 
 // Mock repository for failure
@@ -57,11 +51,11 @@ class TestHomeBinding extends Binding {
 
   @override
   List<Bind> dependencies() => [
-        Bind.lazyPut<IHomeRepository>(() => repository),
-        Bind.lazyPut<HomeController>(
-          () => HomeController(homeRepository: Get.find()),
-        ),
-      ];
+    Bind.lazyPut<IHomeRepository>(() => repository),
+    Bind.lazyPut<HomeController>(
+      () => HomeController(homeRepository: Get.find()),
+    ),
+  ];
 }
 
 class TestDetailsBinding extends Binding {
@@ -70,11 +64,11 @@ class TestDetailsBinding extends Binding {
 
   @override
   List<Bind> dependencies() => [
-        Bind.lazyPut<IHomeRepository>(() => repository),
-        Bind.lazyPut<DetailsController>(
-          () => DetailsController(homeRepository: Get.find()),
-        ),
-      ];
+    Bind.lazyPut<IHomeRepository>(() => repository),
+    Bind.lazyPut<DetailsController>(
+      () => DetailsController(homeRepository: Get.find()),
+    ),
+  ];
 }
 
 void main() {

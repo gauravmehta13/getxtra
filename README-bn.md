@@ -90,7 +90,7 @@ dependencies:
 যে ফাইল এ ব্যবহার করবেন সেখানে ইম্পোর্ট করুন:
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 ```
 
 # GetX দিয়ে কাউন্টার অ্যাপ
@@ -297,7 +297,7 @@ To add custom translations, create a class and extend `Translations`.
 কাস্টম অনুবাদ যোগ করতে, একটি class তৈরি করুন এবং `Translations` এ extends করুন।
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 class Messages extends Translations {
   @override
@@ -330,7 +330,7 @@ Text('singularKey'.trPlural('pluralKey', products.length, Args));
 #### প্যারামিটার সহ অনুবাদ ব্যবহার
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 
 Map<String, Map<String, String>> get keys => {

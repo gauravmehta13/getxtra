@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 import 'package:get_demo/pages/home/domain/entity/country_model.dart';
 
 import '../controllers/details_controller.dart';
@@ -38,10 +38,7 @@ class DetailsView extends GetView<DetailsController> {
             appBar: AppBar(
               title: Text(
                 args.country,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
-                ),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
               ),
               backgroundColor: Colors.transparent,
               elevation: 0,
@@ -90,11 +87,7 @@ class DetailsView extends GetView<DetailsController> {
 }
 
 class InfoRow extends StatelessWidget {
-  const InfoRow({
-    super.key,
-    required this.label,
-    required this.value,
-  });
+  const InfoRow({super.key, required this.label, required this.value});
 
   final String label;
   final String value;

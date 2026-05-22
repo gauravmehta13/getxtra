@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 import '../../domain/adapters/repository_adapter.dart';
 import '../../domain/entity/country_model.dart';

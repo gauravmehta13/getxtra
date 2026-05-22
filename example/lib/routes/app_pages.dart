@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 import 'package:get_demo/pages/home/bindings/details_binding.dart';
 
 import '../pages/home/bindings/home_binding.dart';
@@ -18,9 +18,10 @@ class AppPages {
       binding: HomeBinding(),
       children: [
         GetPage(
-            name: Routes.DETAILS,
-            page: () => const DetailsView(),
-            binding: DetailsBinding()),
+          name: Routes.DETAILS,
+          page: () => const DetailsView(),
+          binding: DetailsBinding(),
+        ),
       ],
     ),
   ];

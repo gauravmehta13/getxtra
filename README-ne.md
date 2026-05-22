@@ -124,7 +124,7 @@ dependencies:
 जहाँ प्रयोग हुन्छ, ती फाइलहरूमा get इम्पोर्ट गर्नुहोस्:
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 ```
 
 # GetX सहित काउन्टर एप
@@ -342,7 +342,7 @@ Text(controller.textFromApi);
 custom translations थप्न class बनाएर `Translations` लाई extend गर्नुहोस्।
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 class Messages extends Translations {
   @override
@@ -375,7 +375,7 @@ Text('singularKey'.trPlural('pluralKey', products.length, Args));
 #### parameters सहित अनुवाद प्रयोग गर्ने तरिका
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 
 Map<String, Map<String, String>> get keys => {

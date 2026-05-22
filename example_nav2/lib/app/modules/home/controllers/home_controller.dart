@@ -1,3 +1,3 @@
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 class HomeController extends GetxController {}

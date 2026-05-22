@@ -104,7 +104,7 @@ dependencies:
 Import get didalam file dimana get akan digunakan:
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 ```
 
 # Aplikasi Counter menggunakan GetX
@@ -321,7 +321,7 @@ Translasi disimpan sebagai key-value map sederhana.
 Untuk menambahkan translasi kustom, buat sebuah kelas dan extend `Translations`.
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 class Messages extends Translations {
   @override

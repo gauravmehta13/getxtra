@@ -126,7 +126,7 @@ dependencies:
 Get’i kullanılacak sayfaya import ediyoruz:
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 ```
 
 # GetX ile Sayaç Uygulaması
@@ -341,7 +341,7 @@ Translations, map halinde basit key-value değerleri tutar.
 Özel translation'larınızı eklemek için bir sınıf oluşturup `Translations`sınıfını extend edebilirsiniz.
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 class Messages extends Translations {
   @override
@@ -375,7 +375,7 @@ Text('singularKey'.trPlural('pluralKey', products.length, Args));
 #### Parametreler ile çeviri yapımı
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 
 Map<String, Map<String, String>> get keys => {

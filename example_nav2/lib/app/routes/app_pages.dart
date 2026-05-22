@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 import '../middleware/auth_middleware.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
@@ -49,17 +49,13 @@ class AppPages {
           preventDuplicates: true,
           name: _Paths.home,
           page: () => const HomeView(),
-          bindings: [
-            HomeBinding(),
-          ],
+          bindings: [HomeBinding()],
           title: null,
           children: [
             GetPage(
               name: _Paths.dashboard,
               page: () => const DashboardView(),
-              bindings: [
-                DashboardBinding(),
-              ],
+              bindings: [DashboardBinding()],
             ),
             GetPage(
               middlewares: [
@@ -99,9 +95,7 @@ class AppPages {
         GetPage(
           name: _Paths.settings,
           page: () => const SettingsView(),
-          bindings: [
-            SettingsBinding(),
-          ],
+          bindings: [SettingsBinding()],
         ),
       ],
     ),

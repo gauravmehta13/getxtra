@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 void main() {
   Get.lazyPut<Controller2>(() => Controller2());
@@ -11,9 +11,7 @@ void main() {
           init: Controller(),
           builder: (controller) => Column(
             children: [
-              Text(
-                '${controller.counter}',
-              ),
+              Text('${controller.counter}'),
               TextButton(
                 child: const Text("increment"),
                 onPressed: () => controller.increment(),
@@ -23,22 +21,26 @@ void main() {
                 onPressed: () => controller.incrementWithId(),
               ),
               GetBuilder<Controller>(
-                  id: '1',
-                  didChangeDependencies: (_) {
-                    // print("didChangeDependencies called");
-                  },
-                  builder: (controller) {
-                    return Text('id ${controller.counter}');
-                  }),
-              GetBuilder<Controller2>(builder: (controller) {
-                return Text('lazy ${controller.test}');
-              }),
+                id: '1',
+                didChangeDependencies: (_) {
+                  // print("didChangeDependencies called");
+                },
+                builder: (controller) {
+                  return Text('id ${controller.counter}');
+                },
+              ),
+              GetBuilder<Controller2>(
+                builder: (controller) {
+                  return Text('lazy ${controller.test}');
+                },
+              ),
               GetBuilder<ControllerNonGlobal>(
-                  init: ControllerNonGlobal(),
-                  global: false,
-                  builder: (controller) {
-                    return Text('single ${controller.nonGlobal}');
-                  })
+                init: ControllerNonGlobal(),
+                global: false,
+                builder: (controller) {
+                  return Text('single ${controller.nonGlobal}');
+                },
+              ),
             ],
           ),
         ),

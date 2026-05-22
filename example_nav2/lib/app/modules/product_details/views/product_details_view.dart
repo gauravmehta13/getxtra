@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 import '../controllers/product_details_controller.dart';
 
@@ -17,7 +17,7 @@ class ProductDetailsView extends GetWidget<ProductDetailsController> {
               'ProductDetailsView is working',
               style: TextStyle(fontSize: 20),
             ),
-            Text('ProductId: ${controller.productId}')
+            Text('ProductId: ${controller.productId}'),
           ],
         ),
       ),

@@ -1,14 +1,12 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 import 'utils/wrapper.dart';
 
 void main() {
   testWidgets("Test dispose dependencies with unnamed routes", (tester) async {
-    await tester.pumpWidget(
-      Wrapper(child: Container()),
-    );
+    await tester.pumpWidget(Wrapper(child: Container()));
 
     expect(Get.isRegistered<Controller2>(), false);
     expect(Get.isRegistered<Controller>(), false);
@@ -58,9 +56,7 @@ class First extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(Controller());
-    return const Center(
-      child: Text("first"),
-    );
+    return const Center(child: Text("first"));
   }
 }
 
@@ -70,8 +66,6 @@ class Second extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(Controller2());
-    return const Center(
-      child: Text("second"),
-    );
+    return const Center(child: Text("second"));
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 void main() {
   Get.lazyPut<Controller2>(() => Controller2());
@@ -12,37 +12,28 @@ void main() {
           builder: (controller) {
             return Column(
               children: [
-                Text(
-                  'Count: ${controller.counter.value}',
-                ),
-                Text(
-                  'Double: ${controller.doubleNum.value}',
-                ),
-                Text(
-                  'String: ${controller.string.value}',
-                ),
-                Text(
-                  'List: ${controller.list.length}',
-                ),
-                Text(
-                  'Bool: ${controller.boolean.value}',
-                ),
-                Text(
-                  'Map: ${controller.map.length}',
-                ),
+                Text('Count: ${controller.counter.value}'),
+                Text('Double: ${controller.doubleNum.value}'),
+                Text('String: ${controller.string.value}'),
+                Text('List: ${controller.list.length}'),
+                Text('Bool: ${controller.boolean.value}'),
+                Text('Map: ${controller.map.length}'),
                 TextButton(
                   child: const Text("increment"),
                   onPressed: () => controller.increment(),
                 ),
-                GetX<Controller2>(builder: (controller) {
-                  return Text('lazy ${controller.lazy.value}');
-                }),
+                GetX<Controller2>(
+                  builder: (controller) {
+                    return Text('lazy ${controller.lazy.value}');
+                  },
+                ),
                 GetX<ControllerNonGlobal>(
-                    init: ControllerNonGlobal(),
-                    global: false,
-                    builder: (controller) {
-                      return Text('single ${controller.nonGlobal.value}');
-                    })
+                  init: ControllerNonGlobal(),
+                  global: false,
+                  builder: (controller) {
+                    return Text('single ${controller.nonGlobal.value}');
+                  },
+                ),
               ],
             );
           },

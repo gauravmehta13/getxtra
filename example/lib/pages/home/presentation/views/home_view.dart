@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -70,10 +70,13 @@ class HomeView extends GetView<HomeController> {
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.white,
-                        backgroundColor:
-                            Colors.blueAccent.withValues(alpha: 0.8),
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                        backgroundColor: Colors.blueAccent.withValues(
+                          alpha: 0.8,
+                        ),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 24,
+                          vertical: 16,
+                        ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
@@ -81,9 +84,11 @@ class HomeView extends GetView<HomeController> {
                         shadowColor: Colors.blueAccent.withValues(alpha: 0.5),
                       ),
                       onPressed: () {
-                        Get.updateLocale(Get.locale?.languageCode == 'en'
-                            ? const Locale('pt', 'BR')
-                            : const Locale('en', 'EN'));
+                        Get.updateLocale(
+                          Get.locale?.languageCode == 'en'
+                              ? const Locale('pt', 'BR')
+                              : const Locale('en', 'EN'),
+                        );
                       },
                       child: Text(
                         'update_language'.tr,
@@ -105,7 +110,9 @@ class HomeView extends GetView<HomeController> {
                               return Card(
                                 elevation: 8,
                                 margin: EdgeInsets.symmetric(
-                                    vertical: 12, horizontal: 4),
+                                  vertical: 12,
+                                  horizontal: 4,
+                                ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
@@ -113,12 +120,15 @@ class HomeView extends GetView<HomeController> {
                                 child: ListTile(
                                   onTap: () async {
                                     final data = await Get.toNamed(
-                                        '/home/details',
-                                        arguments: country);
+                                      '/home/details',
+                                      arguments: country,
+                                    );
                                     if (data != null) Get.log(data);
                                   },
                                   contentPadding: EdgeInsets.symmetric(
-                                      horizontal: 20, vertical: 16),
+                                    horizontal: 20,
+                                    vertical: 16,
+                                  ),
                                   leading: Hero(
                                     tag: 'flag_${country.countryCode}',
                                     child: CircleAvatar(
@@ -136,8 +146,11 @@ class HomeView extends GetView<HomeController> {
                                       color: Colors.black87,
                                     ),
                                   ),
-                                  trailing: Icon(Icons.arrow_forward_ios,
-                                      color: Colors.blueAccent, size: 24),
+                                  trailing: Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: Colors.blueAccent,
+                                    size: 24,
+                                  ),
                                 ),
                               );
                             },
@@ -152,10 +165,7 @@ class HomeView extends GetView<HomeController> {
                         onError: (error) => Center(
                           child: Text(
                             'Error: $error',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                            ),
+                            style: TextStyle(color: Colors.white, fontSize: 18),
                             textAlign: TextAlign.center,
                           ),
                         ),

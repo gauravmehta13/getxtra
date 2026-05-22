@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:get/instance_manager.dart';
+import 'package:getxtra/instance_manager.dart';
 
 import '../../../get_state_manager/get_state_manager.dart';
 import '../../../get_utils/get_utils.dart';
@@ -124,11 +124,11 @@ class GetMaterialApp extends StatelessWidget {
     this.highContrastTheme,
     this.highContrastDarkTheme,
     this.actions,
-  })  : routeInformationProvider = null,
-        backButtonDispatcher = null,
-        routeInformationParser = null,
-        routerDelegate = null,
-        routerConfig = null;
+  }) : routeInformationProvider = null,
+       backButtonDispatcher = null,
+       routeInformationParser = null,
+       routerDelegate = null,
+       routerConfig = null;
 
   const GetMaterialApp.router({
     super.key,
@@ -183,13 +183,13 @@ class GetMaterialApp extends StatelessWidget {
     this.getPages,
     this.navigatorObservers,
     this.unknownRoute,
-  })  : navigatorKey = null,
-        onGenerateRoute = null,
-        home = null,
-        onGenerateInitialRoutes = null,
-        onUnknownRoute = null,
-        routes = null,
-        initialRoute = null;
+  }) : navigatorKey = null,
+       onGenerateRoute = null,
+       home = null,
+       onGenerateInitialRoutes = null,
+       onUnknownRoute = null,
+       routes = null,
+       initialRoute = null;
 
   @override
   Widget build(BuildContext context) {
@@ -240,48 +240,52 @@ class GetMaterialApp extends StatelessWidget {
       //   ),
       //   ...binds,
       // ],
-      child: Builder(builder: (context) {
-        final controller = GetRoot.of(context);
-        return MaterialApp.router(
-          routerDelegate: controller.config.routerDelegate,
-          routeInformationParser: controller.config.routeInformationParser,
-          backButtonDispatcher: backButtonDispatcher,
-          routeInformationProvider: routeInformationProvider,
-          routerConfig: routerConfig,
-          key: controller.config.unikey,
-          builder: (context, child) => Directionality(
-            textDirection: textDirection ??
-                (rtlLanguages.contains(Get.locale?.languageCode)
-                    ? TextDirection.rtl
-                    : TextDirection.ltr),
-            child: builder == null
-                ? (child ?? const Material())
-                : builder!(context, child ?? const Material()),
-          ),
-          title: title,
-          onGenerateTitle: onGenerateTitle,
-          color: color,
-          theme: controller.config.theme ?? ThemeData.fallback(),
-          darkTheme: controller.config.darkTheme ??
-              controller.config.theme ??
-              ThemeData.fallback(),
-          themeMode: controller.config.themeMode,
-          locale: Get.locale ?? locale,
-          scaffoldMessengerKey: controller.config.scaffoldMessengerKey,
-          localizationsDelegates: localizationsDelegates,
-          localeListResolutionCallback: localeListResolutionCallback,
-          localeResolutionCallback: localeResolutionCallback,
-          supportedLocales: supportedLocales,
-          debugShowMaterialGrid: debugShowMaterialGrid,
-          showPerformanceOverlay: showPerformanceOverlay,
-          checkerboardRasterCacheImages: checkerboardRasterCacheImages,
-          checkerboardOffscreenLayers: checkerboardOffscreenLayers,
-          showSemanticsDebugger: showSemanticsDebugger,
-          debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-          shortcuts: shortcuts,
-          scrollBehavior: scrollBehavior,
-        );
-      }),
+      child: Builder(
+        builder: (context) {
+          final controller = GetRoot.of(context);
+          return MaterialApp.router(
+            routerDelegate: controller.config.routerDelegate,
+            routeInformationParser: controller.config.routeInformationParser,
+            backButtonDispatcher: backButtonDispatcher,
+            routeInformationProvider: routeInformationProvider,
+            routerConfig: routerConfig,
+            key: controller.config.unikey,
+            builder: (context, child) => Directionality(
+              textDirection:
+                  textDirection ??
+                  (rtlLanguages.contains(Get.locale?.languageCode)
+                      ? TextDirection.rtl
+                      : TextDirection.ltr),
+              child: builder == null
+                  ? (child ?? const Material())
+                  : builder!(context, child ?? const Material()),
+            ),
+            title: title,
+            onGenerateTitle: onGenerateTitle,
+            color: color,
+            theme: controller.config.theme ?? ThemeData.fallback(),
+            darkTheme:
+                controller.config.darkTheme ??
+                controller.config.theme ??
+                ThemeData.fallback(),
+            themeMode: controller.config.themeMode,
+            locale: Get.locale ?? locale,
+            scaffoldMessengerKey: controller.config.scaffoldMessengerKey,
+            localizationsDelegates: localizationsDelegates,
+            localeListResolutionCallback: localeListResolutionCallback,
+            localeResolutionCallback: localeResolutionCallback,
+            supportedLocales: supportedLocales,
+            debugShowMaterialGrid: debugShowMaterialGrid,
+            showPerformanceOverlay: showPerformanceOverlay,
+            checkerboardRasterCacheImages: checkerboardRasterCacheImages,
+            checkerboardOffscreenLayers: checkerboardOffscreenLayers,
+            showSemanticsDebugger: showSemanticsDebugger,
+            debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+            shortcuts: shortcuts,
+            scrollBehavior: scrollBehavior,
+          );
+        },
+      ),
     );
   }
 }

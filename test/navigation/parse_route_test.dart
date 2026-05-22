@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 void main() {
   test('Parse Page with children', () {
@@ -77,41 +77,50 @@ void main() {
   test('Parse Page without children', () {
     final pageTree = [
       GetPage(
-          name: '/city',
-          page: () => Container(),
-          transition: Transition.cupertino),
+        name: '/city',
+        page: () => Container(),
+        transition: Transition.cupertino,
+      ),
       GetPage(
-          name: '/city/home',
-          page: () => Container(),
-          transition: Transition.downToUp),
+        name: '/city/home',
+        page: () => Container(),
+        transition: Transition.downToUp,
+      ),
       GetPage(
-          name: '/city/home/bed-room',
-          page: () => Container(),
-          transition: Transition.fade),
+        name: '/city/home/bed-room',
+        page: () => Container(),
+        transition: Transition.fade,
+      ),
       GetPage(
-          name: '/city/home/living-room',
-          page: () => Container(),
-          transition: Transition.fadeIn),
+        name: '/city/home/living-room',
+        page: () => Container(),
+        transition: Transition.fadeIn,
+      ),
       GetPage(
-          name: '/city/work',
-          page: () => Container(),
-          transition: Transition.leftToRight),
+        name: '/city/work',
+        page: () => Container(),
+        transition: Transition.leftToRight,
+      ),
       GetPage(
-          name: '/city/work/office',
-          page: () => Container(),
-          transition: Transition.leftToRightWithFade),
+        name: '/city/work/office',
+        page: () => Container(),
+        transition: Transition.leftToRightWithFade,
+      ),
       GetPage(
-          name: '/city/work/office/pen',
-          page: () => Container(),
-          transition: Transition.native),
+        name: '/city/work/office/pen',
+        page: () => Container(),
+        transition: Transition.native,
+      ),
       GetPage(
-          name: '/city/work/office/paper',
-          page: () => Container(),
-          transition: Transition.noTransition),
+        name: '/city/work/office/paper',
+        page: () => Container(),
+        transition: Transition.noTransition,
+      ),
       GetPage(
-          name: '/city/work/meeting-room',
-          page: () => Container(),
-          transition: Transition.rightToLeft),
+        name: '/city/work/meeting-room',
+        page: () => Container(),
+        transition: Transition.rightToLeft,
+      ),
     ];
 
     final tree = ParseRouteTree(routes: pageTree);
@@ -126,83 +135,81 @@ void main() {
     expect(match.route!.name, searchRoute);
   });
 
-  testWidgets(
-    'test params from dynamic route',
-    (tester) async {
-      await tester.pumpWidget(GetMaterialApp(
+  testWidgets('test params from dynamic route', (tester) async {
+    await tester.pumpWidget(
+      GetMaterialApp(
         initialRoute: '/first/juan',
         getPages: [
           GetPage(page: () => Container(), name: '/first/:name'),
           GetPage(page: () => Container(), name: '/second/:id'),
           GetPage(page: () => Container(), name: '/third'),
           GetPage(page: () => Container(), name: '/last/:id/:name/profile'),
-          GetPage(page: () => Container(), name: '/first/second/:token')
+          GetPage(page: () => Container(), name: '/first/second/:token'),
         ],
-      ));
+      ),
+    );
 
-      expect(Get.parameters['name'], 'juan');
+    expect(Get.parameters['name'], 'juan');
 
-      Get.toNamed('/second/1234');
+    Get.toNamed('/second/1234');
 
-      await tester.pumpAndSettle();
+    await tester.pumpAndSettle();
 
-      expect(Get.parameters['id'], '1234');
+    expect(Get.parameters['id'], '1234');
 
-      Get.toNamed('/third?name=jonny&job=dev');
+    Get.toNamed('/third?name=jonny&job=dev');
 
-      await tester.pumpAndSettle();
+    await tester.pumpAndSettle();
 
-      expect(Get.parameters['name'], 'jonny');
-      expect(Get.parameters['job'], 'dev');
+    expect(Get.parameters['name'], 'jonny');
+    expect(Get.parameters['job'], 'dev');
 
-      Get.toNamed('/last/1234/ana/profile');
+    Get.toNamed('/last/1234/ana/profile');
 
-      await tester.pumpAndSettle();
+    await tester.pumpAndSettle();
 
-      expect(Get.parameters['id'], '1234');
-      expect(Get.parameters['name'], 'ana');
+    expect(Get.parameters['id'], '1234');
+    expect(Get.parameters['name'], 'ana');
 
-      Get.toNamed('/last/1234/ana/profile?job=dev');
+    Get.toNamed('/last/1234/ana/profile?job=dev');
 
-      await tester.pumpAndSettle();
+    await tester.pumpAndSettle();
 
-      expect(Get.parameters['id'], '1234');
-      expect(Get.parameters['name'], 'ana');
-      expect(Get.parameters['job'], 'dev');
+    expect(Get.parameters['id'], '1234');
+    expect(Get.parameters['name'], 'ana');
+    expect(Get.parameters['job'], 'dev');
 
-      Get.toNamed(
-        'https://www.example.com/first/second/fa9662f4-ec3f-11ee-a806-169a3915b383',
-      );
-      await tester.pumpAndSettle();
-      expect(Get.parameters['token'], 'fa9662f4-ec3f-11ee-a806-169a3915b383');
-    },
-  );
+    Get.toNamed(
+      'https://www.example.com/first/second/fa9662f4-ec3f-11ee-a806-169a3915b383',
+    );
+    await tester.pumpAndSettle();
+    expect(Get.parameters['token'], 'fa9662f4-ec3f-11ee-a806-169a3915b383');
+  });
 
-  testWidgets(
-    'params in url by parameters',
-    (tester) async {
-      await tester.pumpWidget(GetMaterialApp(
+  testWidgets('params in url by parameters', (tester) async {
+    await tester.pumpWidget(
+      GetMaterialApp(
         initialRoute: '/first/juan',
         getPages: [
           GetPage(page: () => Container(), name: '/first/:name'),
           GetPage(page: () => Container(), name: '/italy'),
         ],
-      ));
+      ),
+    );
 
-      // Get.parameters = ({"varginias": "varginia", "vinis": "viniiss"});
-      var parameters = <String, String>{
-        "varginias": "varginia",
-        "vinis": "viniiss"
-      };
-      // print("Get.parameters: ${Get.parameters}");
-      parameters.addAll({"a": "b", "c": "d"});
-      Get.toNamed("/italy", parameters: parameters);
+    // Get.parameters = ({"varginias": "varginia", "vinis": "viniiss"});
+    var parameters = <String, String>{
+      "varginias": "varginia",
+      "vinis": "viniiss",
+    };
+    // print("Get.parameters: ${Get.parameters}");
+    parameters.addAll({"a": "b", "c": "d"});
+    Get.toNamed("/italy", parameters: parameters);
 
-      await tester.pumpAndSettle();
-      expect(Get.parameters['varginias'], 'varginia');
-      expect(Get.parameters['vinis'], 'viniiss');
-      expect(Get.parameters['a'], 'b');
-      expect(Get.parameters['c'], 'd');
-    },
-  );
+    await tester.pumpAndSettle();
+    expect(Get.parameters['varginias'], 'varginia');
+    expect(Get.parameters['vinis'], 'viniiss');
+    expect(Get.parameters['a'], 'b');
+    expect(Get.parameters['c'], 'd');
+  });
 }

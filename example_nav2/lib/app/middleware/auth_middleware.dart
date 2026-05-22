@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 import '../../services/auth_service.dart';
 import '../routes/app_pages.dart';

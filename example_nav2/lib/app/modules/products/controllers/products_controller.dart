@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 import '../../../../models/demo_product.dart';
 

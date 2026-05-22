@@ -87,7 +87,7 @@ dependencies:
 Импортируйте Get в файлы, в которых планируете его использовать:
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 ```
 
 # Приложение "Счётчик" с GetX
@@ -306,7 +306,7 @@ Text(controller.textFromApi);
 Переводы хранятся в виде карты пар "ключ-значение". Чтобы добавить собственные переводы, создайте класс и расширьте `Translations`.
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 class Messages extends Translations {
   @override

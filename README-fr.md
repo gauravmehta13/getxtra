@@ -105,7 +105,7 @@ dependencies:
 Importez Get dans les fichiers dans lesquels il doit être utilisé:
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 ```
 
 # Application Counter avec Getx
@@ -322,7 +322,7 @@ Les traductions sont enregistrées sous forme de dictionaire clé-valeur simple.
 Pour ajouter des traductions, créez une classe qui 'extend' `Translations`.
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 class Messages extends Translations {
   @override
@@ -355,7 +355,7 @@ Text('cléAuSingulier'.trPlural('cléAuPluriel', products.length, Args));
 #### Utiliser les traductions avec paramètres
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 
 Map<String, Map<String, String>> get keys => {

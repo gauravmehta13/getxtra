@@ -141,7 +141,7 @@ dependencies:
 <div dir="ltr" >
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 ```
 
 </div>
@@ -369,7 +369,7 @@ Translations are kept as a simple key-value dictionary map.
 To add custom translations, create a class and extend `Translations`.
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 class Messages extends Translations {
   @override
@@ -402,7 +402,7 @@ Text('singularKey'.trPlural('pluralKey', products.length, Args));
 #### Using translation with parameters
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 
 Map<String, Map<String, String>> get keys => {

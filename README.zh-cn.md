@@ -101,7 +101,7 @@ dependencies:
 在需要用到的文件中导入，它将被使用。
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 ```
 
 # GetX的计数器示例
@@ -328,7 +328,7 @@ Text(controller.textFromApi);
 要添加自定义翻译，请创建一个类并扩展`翻译`。
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 class Messages extends Translations {
   @override

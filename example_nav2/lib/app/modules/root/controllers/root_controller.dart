@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 class RootController extends GetxController {
   final count = 0.obs;

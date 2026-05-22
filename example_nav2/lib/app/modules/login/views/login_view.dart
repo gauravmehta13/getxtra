@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 import '../../../../services/auth_service.dart';
 import '../../../routes/app_pages.dart';
@@ -15,17 +15,15 @@ class LoginView extends GetView<LoginController> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Obx(
-              () {
-                final isLoggedIn = AuthService.to.isLoggedInValue;
-                return Text(
-                  'You are currently:'
-                  ' ${isLoggedIn ? "Logged In" : "Not Logged In"}'
-                  "\nIt's impossible to enter this "
-                  "route when you are logged in!",
-                );
-              },
-            ),
+            Obx(() {
+              final isLoggedIn = AuthService.to.isLoggedInValue;
+              return Text(
+                'You are currently:'
+                ' ${isLoggedIn ? "Logged In" : "Not Logged In"}'
+                "\nIt's impossible to enter this "
+                "route when you are logged in!",
+              );
+            }),
             MaterialButton(
               child: const Text(
                 'Do LOGIN !!',

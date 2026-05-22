@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/mixin_builder.dart';
+import 'package:getxtra/get.dart';
+import 'package:getxtra/get_state_manager/src/simple/mixin_builder.dart';
 
 void main() {
   testWidgets("MixinBuilder with reactive and not reactive", (tester) async {
@@ -12,27 +12,13 @@ void main() {
           builder: (controller) {
             return Column(
               children: [
-                Text(
-                  'Count: ${controller.counter.value}',
-                ),
-                Text(
-                  'Count2: ${controller.count}',
-                ),
-                Text(
-                  'Double: ${controller.doubleNum.value}',
-                ),
-                Text(
-                  'String: ${controller.string.value}',
-                ),
-                Text(
-                  'List: ${controller.list.length}',
-                ),
-                Text(
-                  'Bool: ${controller.boolean.value}',
-                ),
-                Text(
-                  'Map: ${controller.map.length}',
-                ),
+                Text('Count: ${controller.counter.value}'),
+                Text('Count2: ${controller.count}'),
+                Text('Double: ${controller.doubleNum.value}'),
+                Text('String: ${controller.string.value}'),
+                Text('List: ${controller.list.length}'),
+                Text('Bool: ${controller.boolean.value}'),
+                Text('Map: ${controller.map.length}'),
                 TextButton(
                   child: const Text("increment"),
                   onPressed: () => controller.increment(),
@@ -40,7 +26,7 @@ void main() {
                 TextButton(
                   child: const Text("increment2"),
                   onPressed: () => controller.increment2(),
-                )
+                ),
               ],
             );
           },

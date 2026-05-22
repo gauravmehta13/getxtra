@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 import '../../../routes/app_pages.dart';
 import '../controllers/root_controller.dart';
@@ -13,18 +13,17 @@ class RootView extends GetView<RootController> {
     return Scaffold(
       drawer: const DrawerWidget(),
       appBar: AppBar(
-        title: RouterListener(builder: (context) {
-          final title = context.location;
-          return Text(title);
-        }),
+        title: RouterListener(
+          builder: (context) {
+            final title = context.location;
+            return Text(title);
+          },
+        ),
         centerTitle: true,
       ),
-      //body: HomeView(),
 
-      body: GetRouterOutlet(
-        initialRoute: Routes.home,
-        anchorRoute: '/',
-      ),
+      //body: HomeView(),
+      body: GetRouterOutlet(initialRoute: Routes.home, anchorRoute: '/'),
     );
   }
 }

@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 class ProductDetailsController extends GetxController {
   final String productId;

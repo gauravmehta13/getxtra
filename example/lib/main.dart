@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 // import 'lang/translation_service.dart';
 // import 'routes/app_pages.dart';
@@ -41,22 +41,17 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       getPages: [
         GetPage(
-            participatesInRootNavigator: true,
-            name: '/first',
-            page: () => const First()),
+          participatesInRootNavigator: true,
+          name: '/first',
+          page: () => const First(),
+        ),
         GetPage(
           name: '/second',
           page: () => const Second(),
           transition: Transition.downToUp,
         ),
-        GetPage(
-          name: '/third',
-          page: () => const Third(),
-        ),
-        GetPage(
-          name: '/fourth',
-          page: () => const Fourth(),
-        ),
+        GetPage(name: '/third', page: () => const Third()),
+        GetPage(name: '/fourth', page: () => const Fourth()),
       ],
       debugShowCheckedModeBanner: false,
     );
@@ -87,8 +82,10 @@ class First extends StatelessWidget {
             Get.snackbar(
               'title',
               "message",
-              mainButton:
-                  TextButton(onPressed: () {}, child: const Text('button')),
+              mainButton: TextButton(
+                onPressed: () {},
+                child: const Text('button'),
+              ),
               isDismissible: true,
               duration: Duration(seconds: 5),
               snackbarStatus: (status) => print(status),
@@ -136,16 +133,11 @@ class Second extends StatelessWidget {
       canPop: false,
       onPopInvokedWithResult: (didPop, result) => print('pop invoked'),
       child: Scaffold(
-        appBar: AppBar(
-          title: Text('page two ${Get.parameters["id"]}'),
-        ),
+        appBar: AppBar(title: Text('page two ${Get.parameters["id"]}')),
         body: Center(
           child: Column(
             children: [
-              Expanded(
-                  child: TextField(
-                controller: controller.textEdit,
-              )),
+              Expanded(child: TextField(controller: controller.textEdit)),
               SizedBox(
                 height: 300,
                 width: 300,
@@ -171,9 +163,7 @@ class Third extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.red,
-      appBar: AppBar(
-        title: const Text('page three'),
-      ),
+      appBar: AppBar(title: const Text('page three')),
       body: Center(
         child: SizedBox(
           height: 300,
@@ -199,9 +189,7 @@ class Fourth extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.red,
-      appBar: AppBar(
-        title: const Text('page four'),
-      ),
+      appBar: AppBar(title: const Text('page four')),
       body: Center(
         child: SizedBox(
           height: 300,

@@ -94,7 +94,7 @@ dependencies:
 ```
 ان فائلوں میں امپورٹ کریں جو استعمال ہوں گی
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 ```
 
 # کاؤنٹرایپ
@@ -296,7 +296,7 @@ Text(controller.textFromApi);
 حسب ضرورت ترجمہ شامل کرنے کے لئے ، ایک کلاس تشکیل دیں اور توسیع کریں 
 `Translations`
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 class Messages extends Translations {
   @override

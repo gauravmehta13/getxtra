@@ -124,7 +124,7 @@ dependencies:
 사용할 파일에 Import get:
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 ```
 
 # GetX를 사용한 Counter 앱
@@ -340,7 +340,7 @@ Text(controller.textFromApi);
 커스텀 번역을 추가하려면 `Translations`으로 확장하여 클래스를 만드세요.
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 class Messages extends Translations {
   @override
@@ -373,7 +373,7 @@ Text('singularKey'.trPlural('pluralKey', products.length, Args));
 #### 파라미터로 번역 사용하는 방법
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 
 Map<String, Map<String, String>> get keys => {

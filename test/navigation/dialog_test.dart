@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 import 'utils/wrapper.dart';
 
 void main() {
   testWidgets("Get.defaultDialog smoke test", (tester) async {
-    await tester.pumpWidget(
-      Wrapper(child: Container()),
-    );
+    await tester.pumpWidget(Wrapper(child: Container()));
 
     await tester.pump();
 
     Get.defaultDialog(
-        onConfirm: () {}, middleText: "Dialog made in 3 lines of code");
+      onConfirm: () {},
+      middleText: "Dialog made in 3 lines of code",
+    );
 
     await tester.pumpAndSettle();
 
@@ -21,9 +21,7 @@ void main() {
   });
 
   testWidgets("Get.dialog smoke test", (tester) async {
-    await tester.pumpWidget(
-      Wrapper(child: Container()),
-    );
+    await tester.pumpWidget(Wrapper(child: Container()));
 
     await tester.pump();
 
@@ -37,9 +35,7 @@ void main() {
   group("Get dialog close tests", () {
     /// Set up the test by opening a dialog and checking to ensure state is correct
     Future<void> setUpCloseTest(WidgetTester tester) async {
-      await tester.pumpWidget(
-        Wrapper(child: Container()),
-      );
+      await tester.pumpWidget(Wrapper(child: Container()));
 
       await tester.pump();
 
@@ -75,11 +71,10 @@ void main() {
   });
 
   group("Get.closeDialog", () {
-    testWidgets("Get.closeDialog - closes dialog and returns value",
-        (tester) async {
-      await tester.pumpWidget(
-        Wrapper(child: Container()),
-      );
+    testWidgets("Get.closeDialog - closes dialog and returns value", (
+      tester,
+    ) async {
+      await tester.pumpWidget(Wrapper(child: Container()));
 
       await tester.pump();
 
@@ -102,11 +97,10 @@ void main() {
       await tester.pumpAndSettle();
     });
 
-    testWidgets("Get.closeDialog - does not close bottomsheets",
-        (tester) async {
-      await tester.pumpWidget(
-        Wrapper(child: Container()),
-      );
+    testWidgets("Get.closeDialog - does not close bottomsheets", (
+      tester,
+    ) async {
+      await tester.pumpWidget(Wrapper(child: Container()));
 
       await tester.pump();
 

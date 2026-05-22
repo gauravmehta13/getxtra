@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 import '../../../routes/app_pages.dart';
 import '../controllers/products_controller.dart';
@@ -15,10 +15,7 @@ class ProductsView extends GetView<ProductsController> {
       ),
       body: Column(
         children: [
-          const Hero(
-            tag: 'heroLogo',
-            child: FlutterLogo(),
-          ),
+          const Hero(tag: 'heroLogo', child: FlutterLogo()),
           Expanded(
             child: Obx(
               () => RefreshIndicator(

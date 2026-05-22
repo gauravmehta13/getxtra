@@ -205,7 +205,7 @@ Get को अन फाइल्स में Import करे जहां आ
 
 ```dart
 
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 ```
 

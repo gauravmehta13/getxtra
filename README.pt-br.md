@@ -111,7 +111,7 @@ dependencies:
 Importe o get nos arquivos que ele for usado:
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 ```
 
 # App Counter usando GetX
@@ -348,7 +348,7 @@ Nós mantemos as traduções num simples dictionary map de chave-valor.
 Para adicionar traduções personalizadas, crie uma classe e estenda `Translations`.
 
 ```dart
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 class Messages extends Translations {
   @override

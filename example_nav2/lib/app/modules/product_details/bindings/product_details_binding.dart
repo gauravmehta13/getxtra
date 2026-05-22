@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import 'package:getxtra/get.dart';
 
 import '../controllers/product_details_controller.dart';
 
@@ -7,10 +7,8 @@ class ProductDetailsBinding extends Binding {
   List<Bind> dependencies() {
     return [
       Bind.spawn<ProductDetailsController>(
-        () => ProductDetailsController(
-          Get.parameters['productId'] ?? '',
-        ),
-      )
+        () => ProductDetailsController(Get.parameters['productId'] ?? ''),
+      ),
     ];
   }
 }

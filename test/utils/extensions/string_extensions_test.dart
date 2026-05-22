@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:get/utils.dart';
+import 'package:getxtra/utils.dart';
 
 void main() {
   group('String extensions', () {

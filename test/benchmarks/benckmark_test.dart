@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:get/state_manager.dart';
+import 'package:getxtra/state_manager.dart';
 
 int times = 30;
 
@@ -21,7 +21,8 @@ Future<int> valueNotifier() {
     if (times == value.value) {
       timer.stop();
       printValue(
-          """${value.value} listeners notified | [VALUE_NOTIFIER] time: ${timer.elapsedMicroseconds}ms""");
+        """${value.value} listeners notified | [VALUE_NOTIFIER] time: ${timer.elapsedMicroseconds}ms""",
+      );
       c.complete(timer.elapsedMicroseconds);
     }
   });
@@ -43,7 +44,8 @@ Future<int> getValue() {
     if (times == value.value) {
       timer.stop();
       printValue(
-          """${value.value} listeners notified | [GETX_VALUE] time: ${timer.elapsedMicroseconds}ms""");
+        """${value.value} listeners notified | [GETX_VALUE] time: ${timer.elapsedMicroseconds}ms""",
+      );
       c.complete(timer.elapsedMicroseconds);
     }
   });
@@ -66,7 +68,8 @@ Future<int> stream() {
     if (times == v) {
       timer.stop();
       printValue(
-          """$v listeners notified | [STREAM] time: ${timer.elapsedMicroseconds}ms""");
+        """$v listeners notified | [STREAM] time: ${timer.elapsedMicroseconds}ms""",
+      );
       c.complete(timer.elapsedMicroseconds);
       value.close();
     }
@@ -114,7 +117,8 @@ Future<int> miniStream() {
     if (times == v) {
       timer.stop();
       printValue(
-          """$v listeners notified | [MINI_STREAM] time: ${timer.elapsedMicroseconds}ms""");
+        """$v listeners notified | [MINI_STREAM] time: ${timer.elapsedMicroseconds}ms""",
+      );
       c.complete(timer.elapsedMicroseconds);
     }
   });
@@ -134,8 +138,10 @@ void main() {
     const referenceValue = 200;
     const requestedValue = 100;
 
-    printValue('''
-referenceValue is ${calculePercentage(referenceValue, requestedValue)}% more than requestedValue''');
+    printValue(
+      '''
+referenceValue is ${calculePercentage(referenceValue, requestedValue)}% more than requestedValue''',
+    );
     expect(calculePercentage(referenceValue, requestedValue), 100);
   });
   test('run benchmarks from ValueNotifier', () async {
@@ -155,8 +161,10 @@ referenceValue is ${calculePercentage(referenceValue, requestedValue)}% more tha
     printValue('ValueNotifier delay $dart ms to made $times requests');
     printValue('GetValue delay $getx ms to made $times requests');
     printValue('-----------');
-    printValue('''
-GetValue is ${calculePercentage(dart, getx).round()}% faster than Default ValueNotifier with $times requests''');
+    printValue(
+      '''
+GetValue is ${calculePercentage(dart, getx).round()}% faster than Default ValueNotifier with $times requests''',
+    );
   });
 
   test('run benchmarks from Streams', () async {
@@ -168,8 +176,10 @@ GetValue is ${calculePercentage(dart, getx).round()}% faster than Default ValueN
     var mini = await miniStream();
     var dart = await stream();
     printValue('-----------');
-    printValue('''
-GetStream is ${calculePercentage(dart, mini).round()}% faster than Default Stream with $times requests''');
+    printValue(
+      '''
+GetStream is ${calculePercentage(dart, mini).round()}% faster than Default Stream with $times requests''',
+    );
     printValue('-----------');
 
     times = 30000;
@@ -186,8 +196,10 @@ GetStream is ${calculePercentage(dart, mini).round()}% faster than Default Strea
     // printValue('getx_stream delay $getx ms to made $times requests');
     printValue('getx_mini_stream delay $mini ms to made $times requests');
     printValue('-----------');
-    printValue('''
-GetStream is ${calculePercentage(dart, mini).round()}% faster than Default Stream with $times requests''');
+    printValue(
+      '''
+GetStream is ${calculePercentage(dart, mini).round()}% faster than Default Stream with $times requests''',
+    );
   });
 }
 
