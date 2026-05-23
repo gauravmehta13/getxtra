@@ -1,13 +1,13 @@
 ## [5.0.1]
 
 - **Platform & Compatibility**:
-  - Modernized codebase for Dart 3.11+ and Flutter 3.41+.
+  - Modernized codebase for Dart 3.11+ and Flutter 3.44+.
   - Improved cross-platform support and imported Cupertino widgets in `get_root`.
 - **Optimization & Cleanups**:
   - Optimized `get_rx` reactive core and `get_instance` modules for better performance.
   - Resolved code quality issues, late initialization errors, and linting issues.
 - **Project Structure**:
-  - Renamed package imports to `getxx`.
+  - Renamed package imports to `getxtra`.
   - Updated repository URL to the correct cloneable URL.
 
 ## [5.0.0]
