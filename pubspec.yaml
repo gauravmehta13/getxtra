@@ -1,7 +1,16 @@
 name: getxtra
 description: Open screens/snackbars/dialogs without context, manage states and inject dependencies easily with GetX.
-version: 5.0.0
-homepage: https://github.com/jonataslaw/getx
+version: 5.0.1
+
+repository: https://github.com/gauravmehta13/getxtra
+
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
 
 environment:
   sdk: ">=3.11.0 <4.0.0"
