@@ -1,7 +1,7 @@
 ## [5.0.4]
 
-- **Chore & Maintenance**:
-  - Incremented version to push new stable deployment and verify workflow execution.
+- **Refactoring & Architecture**:
+  - Reorganized `get_connect` project structure by relocating file decoder and HTTP request logic to the `multipart` and `request` directories.
 
 ## [5.0.3]
 
