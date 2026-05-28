@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/gauravmehta13/getxtra">
-    <img src="assets/getxtra_banner.png" alt="getxtra Banner - Premium Flutter State & Route Management" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.5);" />
+    <img src="https://raw.githubusercontent.com/gauravmehta13/getxtra/master/assets/getxtra_banner.png" alt="getxtra Banner - Premium Flutter State & Route Management" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.5);" />
   </a>
 </p>
 
@@ -83,13 +83,35 @@ Maintaining a full-scale reactive framework is a massive undertaking. To achieve
 
 We leverage advanced AI models to accelerate framework maintenance:
 
-```mermaid
-graph TD
-    A[Community Issue Filed] --> B[AI-Assisted Triaging & Location Detection]
-    B --> C[AI Generates Specialized Regression Test Suites]
-    C --> D[Safe Refactoring & Modernization of Codebase]
-    D --> E[Continuous Integration & Multi-Platform Validation]
-    E --> F[Rapid Stable Release to Production]
+```text
+┌────────────────────────────────────────────────────────┐
+│ 🔴 Community Issue Filed & Bug Tracked                 │
+└──────────────────────────┬─────────────────────────────┘
+                           │
+                           ▼
+┌────────────────────────────────────────────────────────┐
+│ 🔍 AI-Assisted Triage & Precise Bug Localization       │
+└──────────────────────────┬─────────────────────────────┘
+                           │
+                           ▼
+┌────────────────────────────────────────────────────────┐
+│ 🧪 Automated Regression & Edge-Case Test Harnesses    │
+└──────────────────────────┬─────────────────────────────┘
+                           │
+                           ▼
+┌────────────────────────────────────────────────────────┐
+│ ⚡ Safe AI-Guided Refactoring & Auto-Migration         │
+└──────────────────────────┬─────────────────────────────┘
+                           │
+                           ▼
+┌────────────────────────────────────────────────────────┐
+│ ⚙️ Continuous Integration & Multi-Platform Validation │
+└──────────────────────────┬─────────────────────────────┘
+                           │
+                           ▼
+┌────────────────────────────────────────────────────────┐
+│ 🚀 Rapid Production-Ready Stable Release (Hours!)       │
+└────────────────────────────────────────────────────────┘
 ```
 
 * **Instant Issue Triaging:** Automatically maps user-reported bugs to exact source code coordinates.
