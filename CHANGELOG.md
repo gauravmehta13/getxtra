@@ -1,3 +1,8 @@
+## [5.0.3]
+
+- **Chore & Maintenance**:
+  - Minor cleanup of workflow scripts and verified integration with pub.dev automated OIDC publishing.
+
 ## [5.0.2]
 
 - **CI/CD & Automation**:
