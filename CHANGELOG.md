@@ -1,3 +1,8 @@
+## [5.0.4]
+
+- **Chore & Maintenance**:
+  - Incremented version to push new stable deployment and verify workflow execution.
+
 ## [5.0.3]
 
 - **Chore & Maintenance**:
