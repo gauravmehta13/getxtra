@@ -1,0 +1,90 @@
+name: Upstream Sync and Auto-Publish
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs every day at midnight UTC (100% automated)
+  workflow_dispatch: # Allows manual trigger from the GitHub Actions tab
+
+jobs:
+  sync-bump-publish:
+    name: Sync Upstream, Bump Version, Update Changelog & Tag
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.AUTO_TAG_PAT }} # Uses your PAT to push commits and tags back
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Sync, Merge, Bump Version & Update Changelog
+        run: |
+          git remote add upstream https://github.com/Aniketkhote/getx.git
+          git fetch upstream master
+          
+          # Compare commits between our local master and upstream master
+          NEW_COMMITS=$(git log HEAD..upstream/master --oneline)
+          if [ -z "$NEW_COMMITS" ]; then
+            echo "No new updates found from upstream. Exiting."
+            exit 0
+          fi
+          
+          echo "New commits found in upstream:"
+          echo "$NEW_COMMITS"
+          echo "Merging new commits from upstream..."
+          
+          # Try to merge upstream/master into master
+          if ! git merge upstream/master -m "Merge upstream updates" --allow-unrelated-histories; then
+            echo "Merge conflict detected! Resolving conflicts automatically by favoring upstream changes..."
+            git merge --abort
+            # Merge using the 'theirs' strategy to automatically accept upstream changes cleanly
+            git merge -X theirs upstream/master -m "Merge upstream updates (automatically resolved favoring upstream)" --allow-unrelated-histories
+          fi
+          
+          # 1. Extract the current version from pubspec.yaml
+          VERSION_LINE=$(grep "^version:" pubspec.yaml)
+          CURRENT_VERSION=$(echo "$VERSION_LINE" | awk '{print $2}')
+          echo "Current Version: $CURRENT_VERSION"
+          
+          # 2. Increment the patch version (e.g. 5.0.1 -> 5.0.2)
+          IFS='.' read -r major minor patch <<< "$CURRENT_VERSION"
+          NEW_PATCH=$((patch + 1))
+          NEW_VERSION="$major.$minor.$NEW_PATCH"
+          echo "New Version: $NEW_VERSION"
+          
+          # 3. Update the version in pubspec.yaml
+          sed -i "s/^version: .*/version: $NEW_VERSION/" pubspec.yaml
+          
+          # 4. Generate proper changelog entry in CHANGELOG.md based on upstream commits
+          DATE=$(date +%Y-%m-%d)
+          TEMP_CHANGELOG=$(mktemp)
+          
+          printf "## [%s]\n\n- **Upstream Sync (%s)**:\n" "$NEW_VERSION" "$DATE" > "$TEMP_CHANGELOG"
+          
+          while IFS= read -r line; do
+            if [ -n "$line" ]; then
+              CLEAN_COMMIT=$(echo "$line" | cut -d' ' -f2-)
+              printf "  - %s\n" "$CLEAN_COMMIT" >> "$TEMP_CHANGELOG"
+            fi
+          done <<< "$NEW_COMMITS"
+          
+          printf "\n" >> "$TEMP_CHANGELOG"
+          
+          # Prepend new changelog entries to existing CHANGELOG.md
+          cat CHANGELOG.md >> "$TEMP_CHANGELOG"
+          mv "$TEMP_CHANGELOG" CHANGELOG.md
+          
+          # 5. Commit and push the changes
+          git add pubspec.yaml CHANGELOG.md
+          git commit -m "Auto-bump version to $NEW_VERSION & update CHANGELOG for upstream sync"
+          git push origin master
+          
+          # 6. Create and push the Git tag (which will trigger the pub.dev publish workflow)
+          TAG="v$NEW_VERSION"
+          git tag "$TAG"
+          git push origin "$TAG"
