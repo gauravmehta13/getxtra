@@ -1,3 +1,9 @@
+## [5.0.2]
+
+- **CI/CD & Automation**:
+  - Implemented secure, passwordless publishing to pub.dev using OpenID Connect (OIDC).
+  - Added automated daily upstream synchronization workflow to keep the fork perfectly in sync with upstream updates and auto-resolve merge conflicts.
+
 ## [5.0.1]
 
 - **Platform & Compatibility**:
